@@ -1,4 +1,4 @@
 # labs
 #### where learning occurs
 
-[intersection-observer](/labs)
+[intersection-observer](/intersection-observer)
