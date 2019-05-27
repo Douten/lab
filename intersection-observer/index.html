@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Intersection Observer & Animation</title>
+    <style>
+      body,ul,li{
+        margin: 0;
+        padding: 0;
+      }
+      section{
+        margin: 0 5em;
+        padding: 0 6em 2em;
+      }
+      h1{
+        font-size: 4em;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 0.5rem;
+      }
+      
+      li {
+        list-style: none;
+      }
+      img {
+        width: 100%;
+        display: block; /* removes bottom margin of inline img */
+      }
+
+      .gallery img{
+        opacity: 0;
+        transform: translateY(2em);
+        transition: opacity .5s ease-in .1s, transform .5s ease-in .1s;
+      }
+
+      .gallery img.is-visible{
+        opacity: 1;
+        transform: unset;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>Tokyo</h1>
+        <ul class="gallery">
+        <li><img src="images/400px/tokyo (1).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (2).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (3).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (4).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (5).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (6).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (7).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (8).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (9).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (10).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (11).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (12).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (13).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (14).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (15).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (16).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (17).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (18).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (19).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (20).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (21).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (22).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (23).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (24).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (25).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (26).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (27).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (28).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (29).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (30).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (31).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (32).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (33).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (34).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (35).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (36).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (37).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (38).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (39).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (40).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (41).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (42).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (43).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (44).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (45).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (46).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (47).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (48).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (49).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (50).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (51).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (52).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (53).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (54).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (55).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (56).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (57).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (58).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (59).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (60).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (61).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (62).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (63).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (64).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (65).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (66).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (67).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (68).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (69).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (70).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (71).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (72).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (73).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (74).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (75).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (76).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (77).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (78).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (79).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (80).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (81).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (82).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (83).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (84).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (85).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (86).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (87).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (88).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (89).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (90).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (91).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (92).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (93).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (94).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (95).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (96).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (97).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (98).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (99).jpg" alt="tokyo photo" /></li>
+        <li><img src="images/400px/tokyo (100).jpg" alt="tokyo photo" /></li>
+      </ul>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
